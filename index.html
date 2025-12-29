@@ -51,6 +51,16 @@
         .animate-bounce-slow {
             animation: bounce-slow 2s infinite;
         }
+		.glass-card {
+    background: rgba(11, 30, 51, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.glass-card:hover {
+    background: linear-gradient(135deg, rgba(1, 60, 88, 0.4) 0%, rgba(11, 30, 51, 0.8) 100%);
+    border-color: rgba(245, 162, 1, 0.5);
+}
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -239,16 +249,16 @@
         </div>
     </div>
 
-    <div id="selectGallery" class="gallery gallery-product-tile-set scroll-gallery show">
+    <div id="selectGallery" class="gallery scroll-gallery show">
         <div id="appleScrollContainer" class="scroll-container overflow-x-auto no-scrollbar scroll-smooth" tabindex="-1">
             <div class="item-container w-max">
                 <ul id="projectContainer" 
-                    class="product-tile-set flex snap-x snap-mandatory gap-6 pb-12" 
+                    class="flex snap-x snap-mandatory gap-6 pb-12" 
                     role="list" 
                     style="padding-left: calc((100vw - min(1280px, 100vw - 48px)) / 2); padding-right: 1.5rem;">
                     
-                    <li class="product-tile gallery-item flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
-                        <div class="bg-brandDark border border-brandBlue rounded-2xl p-8 hover:border-brandGold transition-all h-[500px] flex flex-col justify-between">
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl">
                             <div>
                                 <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Data Engineering</span>
                                 <h4 class="text-2xl font-bold mb-4 text-white">Enterprise Data Lakehouse</h4>
@@ -262,8 +272,8 @@
                         </div>
                     </li>
 
-                    <li class="product-tile gallery-item flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
-                        <div class="bg-brandDark border border-brandBlue rounded-2xl p-8 hover:border-brandGold transition-all h-[500px] flex flex-col justify-between">
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl">
                             <div>
                                 <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Predictive Analytics</span>
                                 <h4 class="text-2xl font-bold mb-4 text-white">Supply Chain Demand Forecasting</h4>
@@ -277,50 +287,66 @@
                         </div>
                     </li>
 
-                    <li class="product-tile gallery-item flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
-                        <div class="bg-brandDark border border-brandBlue rounded-2xl p-8 hover:border-brandGold transition-all h-[500px] flex flex-col justify-between">
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl">
                             <div>
-                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">BI & Visualization</span>
-                                <h4 class="text-2xl font-bold mb-4 text-white">Global Security Risk Dashboard</h4>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Consolidated 12+ security data sources into a unified executive view for real-time RCA and threat mitigation.</p>
+                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Financial Analytics</span>
+                                <h4 class="text-2xl font-bold mb-4 text-white">Algorithmic Risk Assessment</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Automated Monte Carlo simulations to quantify portfolio risk exposure under various volatile market scenarios.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Power BI</span>
-                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Snowflake</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">SQL</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">R (Shiny)</span>
                                 </div>
                             </div>
                             <a href="#" class="text-brandGold font-bold text-sm italic underline underline-offset-8">Learn more ></a>
                         </div>
                     </li>
 
-                    <li class="product-tile gallery-item flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
-                        <div class="bg-brandDark border border-brandBlue rounded-2xl p-8 hover:border-brandGold transition-all h-[500px] flex flex-col justify-between">
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl">
                             <div>
-                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Marketing Analytics</span>
-                                <h4 class="text-2xl font-bold mb-4 text-white">Multi-Touch ROI Attribution</h4>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Custom Markov-chain attribution model to optimize ad spend across digital channels for high-growth tech firms.</p>
+                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Anomaly Detection</span>
+                                <h4 class="text-2xl font-bold mb-4 text-white">Real-time Fraud Sentinel</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Built a low-latency pipeline to detect fraudulent transactions using Isolation Forests and Streamlit for monitoring.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">R</span>
-                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">BigQuery</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Kafka</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Pandas</span>
                                 </div>
                             </div>
                             <a href="#" class="text-brandGold font-bold text-sm italic underline underline-offset-8">Learn more ></a>
                         </div>
                     </li>
 
-                    <li class="product-tile gallery-item flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
-                        <div class="bg-brandDark border border-brandBlue rounded-2xl p-8 hover:border-brandGold transition-all h-[500px] flex flex-col justify-between">
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl">
                             <div>
-                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">NLP & Automation</span>
-                                <h4 class="text-2xl font-bold mb-4 text-white">Sentiment Intelligence Hub</h4>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Processing 1M+ customer reviews using BERT to identify trending service friction points automatically.</p>
+                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">CRM & Growth</span>
+                                <h4 class="text-2xl font-bold mb-4 text-white">RFM Customer Segmentation</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Identified high-value customer clusters using K-Means clustering to drive targeted 20% increase in retention.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">TensorFlow</span>
-                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">GCP</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Tableau</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Python</span>
                                 </div>
                             </div>
                             <a href="#" class="text-brandGold font-bold text-sm italic underline underline-offset-8">Learn more ></a>
                         </div>
                     </li>
+
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl">
+                            <div>
+                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Automation</span>
+                                <h4 class="text-2xl font-bold mb-4 text-white">Serverless ETL Orchestration</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Designed an AWS Lambda-based ETL pipeline that processes 50GB of raw log data daily with zero downtime.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">AWS Glue</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Terraform</span>
+                                </div>
+                            </div>
+                            <a href="#" class="text-brandGold font-bold text-sm italic underline underline-offset-8">Learn more ></a>
+                        </div>
+                    </li>
+
                 </ul>
             </div>
         </div>
