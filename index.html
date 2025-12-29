@@ -58,12 +58,12 @@
     <nav class="fixed w-full z-50 bg-brandDark/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-extrabold tracking-tighter text-brandGold uppercase">Jeremy Manalo</a>
-            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest">
-                <a href="#home" class="hover:text-brandGold transition-colors">Home</a>
-                <a href="#cv-resume" class="hover:text-brandGold transition-colors">CV/Resume</a>
-                <a href="#projects" class="hover:text-brandGold transition-colors">Projects</a>
-                <a href="#contactme" class="hover:text-brandGold transition-colors">Contact Me</a>
-            </div>
+            <div id="nav-links" class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest">
+				<a href="#home" data-section="home" class="nav-link hover:text-brandGold transition-colors text-white">Home</a>
+				<a href="#cv-resume" data-section="cv-resume" class="nav-link hover:text-brandGold transition-colors text-white">CV/Resume</a>
+				<a href="#projects" data-section="projects" class="nav-link hover:text-brandGold transition-colors text-white">Projects</a>
+				<a href="#contactme" data-section="contactme" class="nav-link hover:text-brandGold transition-colors text-white">Contact Me</a>
+			</div>
         </div>
     </nav>
 
@@ -211,118 +211,134 @@
     </div>
 </section>
 
-<section id="projects" class="py-20 bg-brandDark block">
-    <div class="max-w-7xl mx-auto px-6 mb-10">
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+
+<section id="projects" class="py-32 bg-brandDark min-h-screen block overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-16">
         <div class="flex justify-between items-end">
             <div data-aos="fade-right">
                 <h2 class="text-brandGold mono text-sm font-bold mb-2 tracking-widest uppercase italic">02. Portfolios</h2>
-                <h3 class="text-4xl font-extrabold tracking-tight text-white">Project Gallery</h3>
+                <h3 class="text-5xl font-extrabold tracking-tight text-white">Project Lineup.</h3>
             </div>
             <div class="flex gap-4">
-                <button onclick="scrollProjects(-450)" class="p-3 border border-brandBlue rounded-full hover:bg-brandBlue transition-colors group">
+                <button onclick="scrollProjects(-482)" class="p-4 border border-brandBlue rounded-full hover:bg-brandBlue transition-all group">
                     <i class="fa-solid fa-chevron-left text-brandGold group-hover:text-white"></i>
                 </button>
-                <button onclick="scrollProjects(450)" class="p-3 border border-brandBlue rounded-full hover:bg-brandBlue transition-colors group">
+                <button onclick="scrollProjects(482)" class="p-4 border border-brandBlue rounded-full hover:bg-brandBlue transition-all group">
                     <i class="fa-solid fa-chevron-right text-brandGold group-hover:text-white"></i>
                 </button>
             </div>
         </div>
     </div>
 
-    <div id="projectContainer" class="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-10 max-w-7xl mx-auto scroll-smooth">
+    <div id="projectContainer" 
+         class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-20 scroll-smooth no-scrollbar" 
+         style="padding-left: max(1.5rem, calc((100% - 1280px) / 2 + 1.5rem)); padding-right: 10vw;">
         
-        <div class="flex-none w-full md:w-[450px] snap-center" data-project-id="PRJ-2025-01">
-            <div class="bg-brandNavy/50 border border-brandBlue rounded-3xl p-8 hover:border-brandGold transition-all duration-500 h-full flex flex-col group">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="p-3 bg-brandDark rounded-2xl group-hover:bg-brandGold transition-colors">
-                        <i class="fa-solid fa-layer-group text-2xl text-brandGold group-hover:text-brandDark"></i>
+        <div class="flex-none w-[85vw] md:w-[450px] snap-start">
+            <div class="bg-gradient-to-b from-brandNavy/40 to-brandDark border border-brandBlue/50 rounded-[2.5rem] p-10 hover:border-brandGold/50 transition-all duration-700 h-[550px] flex flex-col justify-between group">
+                <div>
+                    <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Data Engineering</span>
+                    <h4 class="text-3xl font-bold mb-4 text-white leading-tight">Enterprise Data Lakehouse</h4>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">A unified Delta Lake architecture serving 500+ daily BI users.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Azure</span>
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">PySpark</span>
                     </div>
-                    <span class="mono text-[10px] text-brandGold border border-brandGold/30 px-2 py-1 rounded">ID: 2025-01</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4 text-white">Enterprise Data Lakehouse Migration</h4>
-                <p class="text-slate-400 text-sm flex-grow leading-relaxed">Migrated legacy siloed architecture to a unified Delta Lake on Databricks, serving 500+ daily BI users.</p>
-                <div class="mt-8 pt-6 border-t border-brandBlue flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">Azure</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">PySpark</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">Governance</span>
-                </div>
+                <a href="#" class="inline-flex items-center text-brandGold font-bold text-sm group/link italic underline underline-offset-8">
+                    Learn more >
+                </a>
             </div>
         </div>
 
-        <div class="flex-none w-full md:w-[450px] snap-center" data-project-id="PRJ-2025-02">
-            <div class="bg-brandNavy/50 border border-brandBlue rounded-3xl p-8 hover:border-brandGold transition-all duration-500 h-full flex flex-col group">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="p-3 bg-brandDark rounded-2xl group-hover:bg-brandGold transition-colors">
-                        <i class="fa-solid fa-diagram-project text-2xl text-brandGold group-hover:text-brandDark"></i>
+        <div class="flex-none w-[85vw] md:w-[450px] snap-start">
+            <div class="bg-gradient-to-b from-brandNavy/40 to-brandDark border border-brandBlue/50 rounded-[2.5rem] p-10 hover:border-brandGold/50 transition-all duration-700 h-[550px] flex flex-col justify-between group">
+                <div>
+                    <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Security & Compliance</span>
+                    <h4 class="text-3xl font-bold mb-4 text-white leading-tight">Data Compliance Engine</h4>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">Automated PII detection and masking for global HIPAA/GDPR markets.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Security</span>
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Python</span>
                     </div>
-                    <span class="mono text-[10px] text-brandGold border border-brandGold/30 px-2 py-1 rounded">ID: 2025-02</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4 text-white">Automated Data Compliance Engine</h4>
-                <p class="text-slate-400 text-sm flex-grow leading-relaxed">Built an automated PII detection and masking pipeline for HIPAA/GDPR compliance across 14 global markets.</p>
-                <div class="mt-8 pt-6 border-t border-brandBlue flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">Security</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">Python</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">DevOps</span>
-                </div>
+                <a href="#" class="inline-flex items-center text-brandGold font-bold text-sm group/link italic underline underline-offset-8">
+                    Learn more >
+                </a>
             </div>
         </div>
 
-        <div class="flex-none w-full md:w-[450px] snap-center" data-project-id="PRJ-2025-03">
-            <div class="bg-brandNavy/50 border border-brandBlue rounded-3xl p-8 hover:border-brandGold transition-all duration-500 h-full flex flex-col group">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="p-3 bg-brandDark rounded-2xl group-hover:bg-brandGold transition-colors">
-                        <i class="fa-solid fa-chart-pie text-2xl text-brandGold group-hover:text-brandDark"></i>
+        <div class="flex-none w-[85vw] md:w-[450px] snap-start">
+            <div class="bg-gradient-to-b from-brandNavy/40 to-brandDark border border-brandBlue/50 rounded-[2.5rem] p-10 hover:border-brandGold/50 transition-all duration-700 h-[550px] flex flex-col justify-between group">
+                <div>
+                    <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">AI & ML</span>
+                    <h4 class="text-3xl font-bold mb-4 text-white leading-tight">Predictive Supply Chain</h4>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">Forecasting inventory with 94% accuracy using ensemble learning models.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Scikit-Learn</span>
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Tableau</span>
                     </div>
-                    <span class="mono text-[10px] text-brandGold border border-brandGold/30 px-2 py-1 rounded">ID: 2025-03</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4 text-white">Supply Chain Predictive Analytics</h4>
-                <p class="text-slate-400 text-sm flex-grow leading-relaxed">Forecasted inventory requirements with 94% accuracy using ensemble learning, saving $2M in annual overhead.</p>
-                <div class="mt-8 pt-6 border-t border-brandBlue flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">Scikit-Learn</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">SQL</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">Tableau</span>
-                </div>
+                <a href="#" class="inline-flex items-center text-brandGold font-bold text-sm group/link italic underline underline-offset-8">
+                    Learn more >
+                </a>
             </div>
         </div>
 
-        <div class="flex-none w-full md:w-[450px] snap-center" data-project-id="PRJ-2025-04">
-            <div class="bg-brandNavy/50 border border-brandBlue rounded-3xl p-8 hover:border-brandGold transition-all duration-500 h-full flex flex-col group">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="p-3 bg-brandDark rounded-2xl group-hover:bg-brandGold transition-colors">
-                        <i class="fa-solid fa-cloud-arrow-up text-2xl text-brandGold group-hover:text-brandDark"></i>
+        <div class="flex-none w-[85vw] md:w-[450px] snap-start">
+            <div class="bg-gradient-to-b from-brandNavy/40 to-brandDark border border-brandBlue/50 rounded-[2.5rem] p-10 hover:border-brandGold/50 transition-all duration-700 h-[550px] flex flex-col justify-between group">
+                <div>
+                    <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Infrastructure</span>
+                    <h4 class="text-3xl font-bold mb-4 text-white leading-tight">Real-Time Event Hub</h4>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">Kafka streaming platform processing 10k+ events/sec for personalization.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Kafka</span>
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">AWS</span>
                     </div>
-                    <span class="mono text-[10px] text-brandGold border border-brandGold/30 px-2 py-1 rounded">ID: 2025-04</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4 text-white">Real-Time Event Streaming Hub</h4>
-                <p class="text-slate-400 text-sm flex-grow leading-relaxed">Architected a Kafka-based streaming platform processing 10k+ events/sec for instant customer personalization.</p>
-                <div class="mt-8 pt-6 border-t border-brandBlue flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">Kafka</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">AWS Lambda</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">NoSQL</span>
-                </div>
+                <a href="#" class="inline-flex items-center text-brandGold font-bold text-sm group/link italic underline underline-offset-8">
+                    Learn more >
+                </a>
             </div>
         </div>
 
-        <div class="flex-none w-full md:w-[450px] snap-center" data-project-id="PRJ-2025-05">
-            <div class="bg-brandNavy/50 border border-brandBlue rounded-3xl p-8 hover:border-brandGold transition-all duration-500 h-full flex flex-col group">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="p-3 bg-brandDark rounded-2xl group-hover:bg-brandGold transition-colors">
-                        <i class="fa-solid fa-robot text-2xl text-brandGold group-hover:text-brandDark"></i>
+        <div class="flex-none w-[85vw] md:w-[450px] snap-start">
+            <div class="bg-gradient-to-b from-brandNavy/40 to-brandDark border border-brandBlue/50 rounded-[2.5rem] p-10 hover:border-brandGold/50 transition-all duration-700 h-[550px] flex flex-col justify-between group">
+                <div>
+                    <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Business Intelligence</span>
+                    <h4 class="text-3xl font-bold mb-4 text-white leading-tight">Global Security BI</h4>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-6">Unified dashboard integrating 12+ security apps for executive review.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Power BI</span>
+                        <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">SQL</span>
                     </div>
-                    <span class="mono text-[10px] text-brandGold border border-brandGold/30 px-2 py-1 rounded">ID: 2025-05</span>
                 </div>
-                <h4 class="text-2xl font-bold mb-4 text-white">LLM-Powered Knowledge Base</h4>
-                <p class="text-slate-400 text-sm flex-grow leading-relaxed">Developed a RAG-based internal search engine using LangChain and Pinecone to reduce support ticket volume by 30%.</p>
-                <div class="mt-8 pt-6 border-t border-brandBlue flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">OpenAI</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">LangChain</span>
-                    <span class="px-3 py-1 bg-brandDark text-brandYellow text-[10px] font-bold uppercase rounded border border-brandBlue/30">Vector DB</span>
-                </div>
+                <a href="#" class="inline-flex items-center text-brandGold font-bold text-sm group/link italic underline underline-offset-8">
+                    Learn more >
+                </a>
             </div>
         </div>
-
     </div>
 </section>
+
+<script>
+    function scrollProjects(amount) {
+        const container = document.getElementById('projectContainer');
+        container.scrollBy({
+            left: amount,
+            behavior: 'smooth'
+        });
+    }
+</script>
 
 <section id="contactme" class="py-24 bg-brandNavy/30 px-6 relative overflow-hidden">
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandBlue/10 blur-[120px] rounded-full -z-10"></div>
@@ -332,7 +348,7 @@
             <h2 class="text-brandGold mono text-sm font-bold mb-2 tracking-widest uppercase">03. Contact</h2>
             <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">Let's Build Something <span class="text-brandYellow">Data-Driven</span></h3>
             <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                I'm always open to discussing data architecture, program management, or potential collaborations. Reach out via the platforms below.
+                Reach out via the platforms below.
             </p>
         </div>
 
@@ -342,7 +358,6 @@
                     <i class="fa-brands fa-linkedin"></i>
                 </div>
                 <div class="text-left">
-                    <p class="text-[10px] mono text-brandYellow uppercase font-bold group-hover:text-white">Professional</p>
                     <p class="text-lg font-bold text-white uppercase tracking-tight">LinkedIn</p>
                 </div>
                 <i class="fa-solid fa-arrow-up-right-from-square absolute top-4 right-4 text-[10px] opacity-30 group-hover:opacity-100 text-brandGold"></i>
@@ -353,7 +368,6 @@
                     <i class="fa-brands fa-github"></i>
                 </div>
                 <div class="text-left">
-                    <p class="text-[10px] mono text-brandYellow uppercase font-bold group-hover:text-white">Source Code</p>
                     <p class="text-lg font-bold text-white uppercase tracking-tight">GitHub</p>
                 </div>
                 <i class="fa-solid fa-arrow-up-right-from-square absolute top-4 right-4 text-[10px] opacity-30 group-hover:opacity-100 text-brandGold"></i>
@@ -364,7 +378,6 @@
 
 <footer class="bg-brandDark border-t border-brandBlue/30 py-10 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="text-brandGold font-bold uppercase tracking-tighter">Jeremy Manalo</div>
         <div class="text-slate-500 text-[10px] mono uppercase tracking-widest">
             Copyright © 2025 All rights reserved
         </div>
@@ -373,6 +386,32 @@
 
     <script>
         AOS.init({ once: false, duration: 800 });
+		// Function to handle highlighting
+		const sections = document.querySelectorAll("section");
+		const navLinks = document.querySelectorAll(".nav-link");
+
+		window.addEventListener("scroll", () => {
+			let current = "";
+
+			sections.forEach((section) => {
+				const sectionTop = section.offsetTop;
+				const sectionHeight = section.clientHeight;
+				// Check if scroll position is within the section (with a 200px offset for better UX)
+				if (pageYOffset >= sectionTop - 200) {
+					current = section.getAttribute("id");
+				}
+			});
+
+			navLinks.forEach((link) => {
+				link.classList.remove("text-brandGold");
+				link.classList.add("text-white");
+				if (link.getAttribute("data-section") === current) {
+					link.classList.remove("text-white");
+					link.classList.add("text-brandGold");
+				}
+			});
+		});
+		
         function scrollProjects(amount) {
             const container = document.getElementById('projectContainer');
             container.scrollBy({ left: amount, behavior: 'smooth' });
