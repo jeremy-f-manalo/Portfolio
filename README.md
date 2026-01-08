@@ -1,6 +1,6 @@
 # Data Analytics Portfolio
 
-A modern, responsive portfolio website built with a focus on clean design and interactive data storytelling. This repository contains the source code for my professional landing page, hosted on GitHub Pages.
+This is a simple, clean portfolio created to share my personal projects as the list grows. It draws inspiration from several website designs I love and is powered by GitHub Pages.
 
 [**View Live Portfolio →**](https://jeremy-f-manalo.github.io/portfolio/)
 
