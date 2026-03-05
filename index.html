@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremy Manalo | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0b1e33',
+                        brandNavy: '#013c58',
+                        brandBlue: '#00537a',
+                        brandGold: '#f5a201',
+                        brandYellow: '#ffba42',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #0b1e33;
+            color: white;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .snap-x {
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .snap-x::-webkit-scrollbar { display: none; }
+        .snap-center { scroll-snap-align: center; }
+        
+        section { display: block; width: 100%; }
+
+        /* Animation for the scroll indicator */
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        .animate-bounce-slow {
+            animation: bounce-slow 2s infinite;
+        }
+		.glass-card {
+		background: rgba(11, 30, 51, 0.7);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		.glass-card:hover {
+			background: linear-gradient(135deg, rgba(1, 60, 88, 0.4) 0%, rgba(11, 30, 51, 0.8) 100%);
+			border-color: rgba(245, 162, 1, 0.5);
+		}
+		.mobile-nav-link {
+			transform: translateY(10px);
+			opacity: 0;
+			transition: transform 0.4s ease, opacity 0.4s ease;
+		}
+
+		#main-nav[style*="height: 100vh"] .mobile-nav-link {
+			transform: translateY(0);
+			opacity: 1;
+		}
+
+		/* Staggered delays for the links */
+		.mobile-nav-link:nth-child(1) { transition-delay: 0.1s; }
+		.mobile-nav-link:nth-child(2) { transition-delay: 0.15s; }
+		.mobile-nav-link:nth-child(3) { transition-delay: 0.2s; }
+		.mobile-nav-link:nth-child(4) { transition-delay: 0.25s; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+<nav id="main-nav" class="fixed w-full z-50 bg-brandDark/80 backdrop-blur-md border-b border-white/10 transition-all duration-500 ease-in-out overflow-hidden h-[64px]">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center h-[64px]">
+        <a href="#" class="text-xl font-extrabold tracking-tighter text-brandGold uppercase z-50">Jeremy Manalo</a>
+        
+        <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest">
+            <a href="#home" data-section="home" class="nav-link hover:text-brandGold transition-colors text-white">Home</a>
+            <a href="#cv-resume" data-section="cv-resume" class="nav-link hover:text-brandGold transition-colors text-white">CV/Resume</a>
+            <a href="#projects" data-section="projects" class="nav-link hover:text-brandGold transition-colors text-white">Projects</a>
+            <a href="#contactme" data-section="contactme" class="nav-link hover:text-brandGold transition-colors text-white">Contact Me</a>
+        </div>
+
+        <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-6 h-6 space-y-1.5 z-50 focus:outline-none">
+            <span id="line1" class="w-6 h-[1px] bg-white transition-all duration-300"></span>
+            <span id="line2" class="w-6 h-[1px] bg-white transition-all duration-300"></span>
+        </button>
+    </div>
+
+    <div id="mobile-links" class="flex flex-col px-10 pt-10 pb-20 space-y-8 text-sm font-bold uppercase tracking-widest transition-opacity duration-300 opacity-0 pointer-events-none md:hidden">
+        <a href="#home" class="mobile-nav-link text-white hover:text-brandGold border-b border-white/5 pb-4">Home</a>
+        <a href="#cv-resume" class="mobile-nav-link text-white hover:text-brandGold border-b border-white/5 pb-4">CV/Resume</a>
+        <a href="#projects" class="mobile-nav-link text-white hover:text-brandGold border-b border-white/5 pb-4">Projects</a>
+        <a href="#contactme" class="mobile-nav-link text-white hover:text-brandGold border-b border-white/5 pb-4">Contact Me</a>
+    </div>
+</nav>
+
+<section id="home" class="relative min-h-screen flex items-center pt-20 px-6 bg-brandDark">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center w-full">
+        <div data-aos="fade-up">
+            <h2 class="text-brandGold mono text-sm font-bold mb-4 tracking-widest uppercase">// Professional Profile</h2>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-2">Jeremy Manalo</h1>
+            <h2 class="text-brandGold text-2xl md:text-3xl font-extrabold leading-tight mb-6">Data Analytics Program Manager</h2>
+            
+            <p class="text-slate-400 text-lg leading-relaxed mb-8 max-w-xl">
+                Hello! This is a collection of my personal projects made during free time.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-6 border-t border-brandBlue/30 pt-8">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-brandGold"></i>
+                    <span class="text-xs font-bold uppercase tracking-wider text-white">Newark, CA</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative flex justify-center items-center" data-aos="zoom-in">
+            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-dashed border-brandBlue/50 flex items-center justify-center relative">
+                <div class="w-48 h-48 md:w-60 md:h-60 bg-brandNavy/30 border border-brandBlue rounded-full flex items-center justify-center shadow-2xl shadow-brandBlue/20">
+                    <i class="fa-solid fa-database text-6xl text-brandGold opacity-80"></i>
+                </div>
+          
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+        <span class="mono text-[10px] uppercase tracking-widest">Explore</span>
+        <i class="fa-solid fa-chevron-down animate-bounce text-brandGold"></i>
+    </div>
+</section>
+
+<section id="cv-resume" class="min-h-screen flex items-center py-24 bg-brandNavy/30 px-6 block">
+    <div class="max-w-7xl mx-auto w-full"> 
+        <div class="mb-12" data-aos="fade-right">
+            <h2 class="text-brandGold mono text-sm font-bold mb-2 tracking-widest uppercase">01. Curriculum Vitae</h2>
+            <h3 class="text-4xl font-extrabold tracking-tight text-white">CV/Resume</h3>
+        </div>
+
+        <div class="mb-8">
+            <h4 class="text-xl font-bold text-white border-b border-brandBlue/30 pb-2 mb-6">Technical Skills</h4>
+            <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5 gap-4">
+                <div class="p-6 bg-brandDark border border-brandBlue rounded-2xl hover:border-brandGold transition-colors" data-aos="fade-up">
+                    <i class="fa-solid fa-code text-brandGold mb-4 text-xl"></i>
+                    <h4 class="font-bold text-sm uppercase mb-3 text-brandYellow">Languages</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">Python (Pandas, NumPy, Scikit-learn), SQL, R, RStudio</p>
+                </div>
+                <div class="p-6 bg-brandDark border border-brandBlue rounded-2xl hover:border-brandGold transition-colors" data-aos="fade-up">
+                    <i class="fa-solid fa-cloud text-brandGold mb-4 text-xl"></i>
+                    <h4 class="font-bold text-sm uppercase mb-3 text-brandYellow">Cloud Infrastructure</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">Google Cloud Platform (GCP), Amazon Web Services (AWS)</p>
+                </div>
+                <div class="p-6 bg-brandDark border border-brandBlue rounded-2xl hover:border-brandGold transition-colors" data-aos="fade-up">
+                    <i class="fa-solid fa-gears text-brandGold mb-4 text-xl"></i>
+                    <h4 class="font-bold text-sm uppercase mb-3 text-brandYellow">Data Engineering</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">BigQuery, Redshift, S3, AWS Glue, Snowflake, ETL/ELT</p>
+                </div>
+                <div class="p-6 bg-brandDark border border-brandBlue rounded-2xl hover:border-brandGold transition-colors" data-aos="fade-up">
+                    <i class="fa-solid fa-chart-pie text-brandGold mb-4 text-xl"></i>
+                    <h4 class="font-bold text-sm uppercase mb-3 text-brandYellow">Business Intelligence</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">Tableau, Power BI, Looker Studio, PLX, Reporting</p>
+                </div>
+				<div class="p-6 bg-brandDark border border-brandBlue rounded-2xl hover:border-brandGold transition-colors" data-aos="fade-up">
+					<i class="fa-solid fa-chart-line text-brandGold mb-4 text-xl"></i>
+					<h4 class="font-bold text-sm uppercase mb-3 text-brandYellow">Analytical Methods</h4>
+					<p class="text-xs text-slate-300 leading-relaxed italic">Statistical Analysis, Time Series, ROI Modeling, RCA</p>
+				</div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12 mt-40">
+            <div class="md:col-span-1 mb-16 md:mb-0">
+                <h4 class="text-xl font-bold text-white border-b border-brandBlue/30 pb-2 mb-8">Education</h4>
+                <div class="space-y-8">
+					<div data-aos="fade-up">
+								<p class="text-brandYellow font-bold">M.S., Business Analytics</p>
+								<p class="text-xs text-slate-400 uppercase">CSU East Bay (2024)</p>
+							</div>
+
+							<div data-aos="fade-up">
+								<p class="text-brandYellow font-bold">B.S., Information Technology</p>
+								<p class="text-xs text-slate-400 uppercase">CSU East Bay (2017)</p>
+							</div>
+
+							<div data-aos="fade-up">
+								<p class="text-brandYellow font-bold">A.S., Math and Science</p>
+								<p class="text-xs text-slate-400 uppercase">San Joaquin Delta College (2015)</p>
+							</div>
+
+							<div data-aos="fade-up">
+								<p class="text-brandYellow font-bold">A.A., Business</p>
+								<p class="text-xs text-slate-400 uppercase">San Joaquin Delta College (2015)</p>
+							</div>
+						</div>
+					</div>
+
+            <div class="md:col-span-2">
+                <h4 class="text-xl font-bold text-white border-b border-brandBlue/30 pb-2 mb-8">Work Experience</h4>
+                <div class="space-y-12 border-l-2 border-brandBlue/50 pl-8 relative">
+                    <div class="relative" data-aos="fade-up">
+                        <div class="absolute -left-[41px] top-0 w-5 h-5 bg-brandGold rounded-full border-4 border-[#06182c]"></div>
+                        <h4 class="text-xl font-bold text-brandYellow leading-none">Data Engineering & Analytics Program Manager</h4>
+                        <div class="flex justify-between items-center mb-4 mt-2">
+                            <span class="text-sm font-bold text-white uppercase tracking-wider">ServiceNow (via Pinkerton)</span>
+                            <time class="mono text-[10px] text-brandGold bg-brandDark px-2 py-1 rounded border border-brandBlue/30">Feb 2025 - Present</time>
+                        </div>
+                        <ul class="text-sm text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Leading a global security data program, integrating 12+ applications into <b>Power BI</b>.</li>
+                            <li>Developing <b>Snowflake (SQL)</b> queries and <b>Python</b> statistical models.</li>
+                            <li>Defining the department's data roadmap and technical documentation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative" data-aos="fade-up">
+                        <div class="absolute -left-[41px] top-0 w-5 h-5 bg-brandBlue rounded-full border-4 border-[#06182c]"></div>
+                        <h4 class="text-xl font-bold text-brandYellow leading-none">Data Analyst II</h4>
+                        <div class="flex justify-between items-center mb-4 mt-2">
+                            <span class="text-sm font-bold text-white uppercase tracking-wider">Google (via Astreya)</span>
+                            <time class="mono text-[10px] text-brandGold bg-brandDark px-2 py-1 rounded border border-brandBlue/30">Aug 2021 - Feb 2025</time>
+                        </div>
+                        <ul class="text-sm text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Engineered data products using <b>PLX (SQL)</b> for global supply chain visibility.</li>
+                            <li>Automated workflows, reducing manual processing time by 50%.</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative" data-aos="fade-up">
+                        <div class="absolute -left-[41px] top-0 w-5 h-5 bg-brandBlue rounded-full border-4 border-[#06182c]"></div>
+                        <h4 class="text-xl font-bold text-brandYellow leading-none">Data Analyst II</h4>
+                        <div class="flex justify-between items-center mb-4 mt-2">
+                            <span class="text-sm font-bold text-white uppercase tracking-wider">Meta (via Milestone)</span>
+                            <time class="mono text-[10px] text-brandGold bg-brandDark px-2 py-1 rounded border border-brandBlue/30">Jun 2019 - Aug 2021</time>
+                        </div>
+                        <ul class="text-sm text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Increased reporting efficiency by 85% leveraging <b>Python (Pandas, NumPy)</b>.</li>
+                            <li>Designed <b>Tableau</b> and <b>Looker Studio</b> dashboards for global training.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+
+<section id="projects" class="py-24 bg-brandDark overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-12">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-6">
+            <div data-aos="fade-right">
+                <h2 class="text-brandGold mono text-sm font-bold mb-2 tracking-widest uppercase">02. Portfolio</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">Project Lineup.</h3>
+            </div>
+            <div class="flex gap-4">
+                <button onclick="scrollGallery(-420)" class="p-4 border border-brandBlue rounded-full hover:bg-brandBlue transition-all group">
+                    <i class="fa-solid fa-chevron-left text-brandGold group-hover:text-white"></i>
+                </button>
+                <button onclick="scrollGallery(420)" class="p-4 border border-brandBlue rounded-full hover:bg-brandBlue transition-all group">
+                    <i class="fa-solid fa-chevron-right text-brandGold group-hover:text-white"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="selectGallery" class="gallery scroll-gallery show">
+        <div id="appleScrollContainer" class="scroll-container w-full overflow-x-auto no-scrollbar scroll-smooth touch-auto" tabindex="-1" style="-webkit-overflow-scrolling: touch;">
+            <div class="item-container w-max">
+                <ul id="projectContainer" 
+				class="flex snap-x snap-mandatory gap-6 pb-12" 
+				role="list" 
+				style="padding-left: max(1.5rem, calc((100vw - 1280px) / 2)); padding-right: 1.5rem;">
+                    
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+					    <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl" data-aos="fade-up">
+					        <div>
+					            <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Web Development</span>
+					            
+					            <h4 class="text-2xl font-bold mb-4 text-white">Personal Portfolio Site</h4>
+					            
+					            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+					               This is a simple, clean portfolio created to share my personal projects as the list grows. It draws inspiration from several website designs I love and is powered by GitHub Pages.
+					            </p>
+					            
+					            <div class="flex flex-wrap gap-2">
+									<span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">HTML</span>
+					                <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">CSS</span>
+					                <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">JavaScript</span>
+					            </div>
+					        </div>
+					        
+					        <a href="https://github.com/jeremy-f-manalo/portfolio" target="_blank" class="text-brandGold font-bold text-sm italic underline underline-offset-8">View Source Code ></a>
+					    </div>
+					</li>
+
+                    <!-- <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl" data-aos="fade-up">
+                            <div>
+                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Predictive Analytics</span>
+                                <h4 class="text-2xl font-bold mb-4 text-white">Supply Chain Demand Forecasting</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Ensemble learning models achieving 94% accuracy in predicting inventory lead times across global hubs.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Python</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Scikit-Learn</span>
+                                </div>
+                            </div>
+                            <a href="#" class="text-brandGold font-bold text-sm italic underline underline-offset-8">Learn more ></a>
+                        </div>
+                    </li>
+
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl" data-aos="fade-up">
+                            <div>
+                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Financial Analytics</span>
+                                <h4 class="text-2xl font-bold mb-4 text-white">Algorithmic Risk Assessment</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Automated Monte Carlo simulations to quantify portfolio risk exposure under various volatile market scenarios.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">SQL</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">R (Shiny)</span>
+                                </div>
+                            </div>
+                            <a href="#" class="text-brandGold font-bold text-sm italic underline underline-offset-8">Learn more ></a>
+                        </div>
+                    </li>
+
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl" data-aos="fade-up">
+                            <div>
+                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Anomaly Detection</span>
+                                <h4 class="text-2xl font-bold mb-4 text-white">Real-time Fraud Sentinel</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Built a low-latency pipeline to detect fraudulent transactions using Isolation Forests and Streamlit for monitoring.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Kafka</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Pandas</span>
+                                </div>
+                            </div>
+                            <a href="#" class="text-brandGold font-bold text-sm italic underline underline-offset-8">Learn more ></a>
+                        </div>
+                    </li>
+
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl" data-aos="fade-up">
+                            <div>
+                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">CRM & Growth</span>
+                                <h4 class="text-2xl font-bold mb-4 text-white">RFM Customer Segmentation</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Identified high-value customer clusters using K-Means clustering to drive targeted 20% increase in retention.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Tableau</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Python</span>
+                                </div>
+                            </div>
+                            <a href="#" class="text-brandGold font-bold text-sm italic underline underline-offset-8">Learn more ></a>
+                        </div>
+                    </li>
+
+                    <li class="flex-none w-[85vw] md:w-[400px] snap-start" role="listitem">
+                        <div class="glass-card rounded-2xl p-8 transition-all h-[520px] flex flex-col justify-between shadow-2xl" data-aos="fade-up">
+                            <div>
+                                <span class="text-brandGold mono text-[10px] font-bold tracking-widest uppercase mb-4 block">Automation</span>
+                                <h4 class="text-2xl font-bold mb-4 text-white">Serverless ETL Orchestration</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Designed an AWS Lambda-based ETL pipeline that processes 50GB of raw log data daily with zero downtime.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">AWS Glue</span>
+                                    <span class="text-[10px] text-slate-300 border border-white/10 px-3 py-1 rounded-full bg-white/5 uppercase">Terraform</span>
+                                </div>
+                            </div>
+                            <a href="#" class="text-brandGold font-bold text-sm italic underline underline-offset-8">Learn more ></a>
+                        </div>
+                    </li> -->
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function scrollProjects(amount) {
+        const container = document.getElementById('projectContainer');
+        container.scrollBy({
+            left: amount,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+<section id="contactme" class="min-h-[80vh] flex items-center py-32 bg-brandNavy/30 px-6 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center w-full">
+        <div class="mb-12" data-aos="fade-up">
+            <h2 class="text-brandGold mono text-sm font-bold mb-2 tracking-widest uppercase">03. Contact</h2>
+            <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">Connect With Me</h3>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+                Reach out via the platforms below.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6" data-aos="zoom-in" data-aos-delay="200">
+            <a href="https://www.linkedin.com/in/jeremymanalo/" target="_blank" class="group relative flex items-center gap-4 px-10 py-5 bg-brandDark border border-brandBlue rounded-2xl hover:border-brandGold transition-all duration-300 min-w-[240px] w-full md:w-auto">
+                <div class="text-3xl text-brandGold group-hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-linkedin"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-lg font-bold text-white uppercase tracking-tight">LinkedIn</p>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square absolute top-4 right-4 text-[10px] opacity-30 group-hover:opacity-100 text-brandGold"></i>
+            </a>
+
+            <a href="https://github.com/jeremy-f-manalo" target="_blank" class="group relative flex items-center gap-4 px-10 py-5 bg-brandDark border border-brandBlue rounded-2xl hover:border-brandGold transition-all duration-300 min-w-[240px] w-full md:w-auto">
+                <div class="text-3xl text-brandGold group-hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-github"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-lg font-bold text-white uppercase tracking-tight">GitHub</p>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square absolute top-4 right-4 text-[10px] opacity-30 group-hover:opacity-100 text-brandGold"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-brandDark border-t border-brandBlue/30 py-10 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-slate-500 text-[10px] mono uppercase tracking-widest">
+            Copyright © 2025 All rights reserved
+        </div>
+        </div>
+</footer>
+
+    <script>
+    // 1. SELECT ELEMENTS
+    const nav = document.getElementById('main-nav');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileLinksContainer = document.getElementById('mobile-links');
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    // 2. DYNAMIC ANIMATION DELAYS
+    // This function automatically assigns staggered delays (0, 100, 200ms...)
+    function applyDynamicDelays() {
+        // Project Cards
+        document.querySelectorAll('#projectContainer .glass-card').forEach((card, index) => {
+            card.setAttribute('data-aos-delay', (index * 100).toString());
+        });
+
+        // Technical Skill Cards
+        document.querySelectorAll('#cv-resume .grid > div[data-aos]').forEach((skill, index) => {
+            skill.setAttribute('data-aos-delay', (index * 100).toString());
+        });
+        
+        // Education Items
+        document.querySelectorAll('#cv-resume .space-y-8 > div[data-aos]').forEach((edu, index) => {
+            edu.setAttribute('data-aos-delay', (index * 100).toString());
+        });
+		
+		// Contact Me Buttons (LinkedIn, GitHub)
+        document.querySelectorAll('#contactme a[data-aos]').forEach((btn, index) => {
+            btn.setAttribute('data-aos-delay', (index * 150).toString());
+        });
+    }
+
+    // 3. INITIALIZE PLUGINS
+    applyDynamicDelays(); // Run logic before AOS starts
+    AOS.init({ 
+        once: false, 
+        duration: 800,
+        offset: 100 // Trigger animation 100px before the element enters viewport
+    });
+
+    // 4. NAVIGATION & MENU LOGIC
+    let isMenuOpen = false;
+
+    function toggleAppleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            nav.style.height = '100vh';
+            nav.classList.replace('bg-brandDark/80', 'bg-brandDark');
+            mobileLinksContainer.classList.remove('opacity-0', 'pointer-events-none');
+            mobileLinksContainer.classList.add('opacity-100');
+            line1.style.transform = 'translateY(3.5px) rotate(45deg)';
+            line2.style.transform = 'translateY(-3.5px) rotate(-45deg)';
+            document.body.style.overflow = 'hidden';
+        } else {
+            nav.style.height = '64px';
+            nav.classList.replace('bg-brandDark', 'bg-brandDark/80');
+            mobileLinksContainer.classList.add('opacity-0', 'pointer-events-none');
+            mobileLinksContainer.classList.remove('opacity-100');
+            line1.style.transform = 'translateY(0) rotate(0)';
+            line2.style.transform = 'translateY(0) rotate(0)';
+            document.body.style.overflow = '';
+        }
+    }
+
+    menuToggle.addEventListener('click', toggleAppleMenu);
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => { if (isMenuOpen) toggleAppleMenu(); });
+    });
+
+    // 5. SCROLL & GALLERY LOGIC
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove("text-brandGold");
+            link.classList.add("text-white");
+            if (link.getAttribute("data-section") === current) {
+                link.classList.remove("text-white");
+                link.classList.add("text-brandGold");
+            }
+        });
+    });
+
+    function scrollGallery(amount) {
+        const container = document.getElementById('appleScrollContainer');
+        container.scrollBy({
+            left: amount,
+            behavior: 'smooth'
+        });
+    }
+</script>
+</body>
+</html>
